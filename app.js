@@ -4,13 +4,22 @@ const mongoose = require('mongoose');
 
 const app = express();
 
-mongoose.connect("mongodb://localhost/todo_app", {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-});
+mongoose.set('strictQuery', false);
+const dbcon = async () => {
+    try {
+        mongoose.connect("mongodb://localhost/todo_app", {
+            useNewUrlParser: true,
+            useUnifiedTopology: true,
+        }, console.log("Database Connected"));
+    } catch (error) {
+        console.log("Database Connection Failed: " + error);
+        process.exit(1);
+    };
+};
+dbcon();
 
 //middlewares
-app.use(express.urlencoded({extended: true}))
+app.use(express.urlencoded({ extended: true }))
 app.use(express.static("public"));
 app.set("view engine", "pug");
 
@@ -22,6 +31,8 @@ app.use(require("./routes/todo"))
 app.listen(3000, () => {
     console.log(`Server Started and Port running at 3000`);
 })
+
+
 
 
 
