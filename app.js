@@ -24,7 +24,7 @@ const dbcon = async () => {
 app.use(express.urlencoded({ extended: true }))
 app.use(
     '/static',
-    app.static(path.join(__dirname, 'public')),
+    express.static(path.join(__dirname, 'public')),
 );
 app.get('/', (req, res) => res.render('index'))
 app.set('views', path.join(__dirname, '/views'));
