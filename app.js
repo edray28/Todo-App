@@ -23,6 +23,7 @@ const dbcon = async () => {
 app.use(express.urlencoded({ extended: true }))
 app.use(express.static("public"));
 app.set("view engine", "pug");
+app.set("views", "./views");
 
 //routes 
 app.use(require("./routes/index"))
