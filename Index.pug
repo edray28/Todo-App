@@ -1,0 +1,24 @@
+doctype html
+html(lang="en")
+  head
+    link(rel="shorcut icon", href="#")
+    link(rel="stylesheet", href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css")
+    title= "Todo App"
+    script(type='text/javascript').
+  body.bg-dark
+    nav.navbar.navbar-dark.d-flex.justify-content-center
+      a(href='#').navbar-brand
+        h2.display-2.pb-2.mb-4.border-bottom.border-danger Todo List App
+    .container.mt-2
+      form(action="/add/todo", method="POST").d-flex.justify-content-center
+        input(type="text",name="todo", placeholder="Enter Todo").bg-warning.form-control.w-25.rounded.text-dark.fs-4
+        input(type="submit", value="Add Todo").btn.btn-lg.btn-primary.mx-2.rounded-pill
+      ul.list-group.my-3.border.border-secondary
+        each todos, index in todo
+          li(style="word-wrap: break-word").list-group-item.text-dark.display-6
+            span.badge.text-bg-success.rounded-pill= index
+            = ` ${todos.todo}`
+            a( style="float:right" href="/delete/todo/" + todos._id).badge.bg-danger.rounded-pill.mx-1.align-items-end.my-1 Delete Todo
+  script(src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous") 
+    
+        
