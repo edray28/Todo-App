@@ -8,6 +8,8 @@
     "watch": "nodemon app.js",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
+    "dev": "npx pm2-dev app.js",
+    "start": "npx pm2 start app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Edray Tuyor",
@@ -19,5 +21,15 @@
     "mongoose": "^6.4.4",
     "nodemon": "^2.0.19",
     "pug": "^3.0.2"
+  },
+  "devDependencies": {
+    "pm2": "^5.3.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/edray28/Todo-App.git"
+  },
+  "bugs": {
+    "url": "https://github.com/edray28/Todo-App/issues"
   }
 }
