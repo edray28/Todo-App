@@ -26,8 +26,8 @@ app.use(
     '/static',
     express.static(path.join(__dirname, 'public')),
 );
-app.get('/views', (req, res) => res.render('index.pug'))
-app.set('views', path.join(__dirname, '/views'));
+app.get('/views', (req, res) => res.render('index'))
+app.set('views', path.join(__dirname, 'views'));
 app.set("view engine", "pug");
 //app.use('/', app.static(path.join(__dirname, '/views')));
 
