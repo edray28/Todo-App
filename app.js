@@ -4,6 +4,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const PORT = process.env.PORT || 3000;
 const app = express();
+const path = require('path');
 
 mongoose.set('strictQuery', false);
 const dbcon = async () => {
@@ -21,9 +22,12 @@ const dbcon = async () => {
 
 //middlewares
 app.use(express.urlencoded({ extended: true }))
-app.use(express.static("public"));
+app.use(
+    '/static',
+    express.static(path.join(__dirname, 'public')),
+);
+app.set('views', path.join(__dirname, 'views'));
 app.set("view engine", "pug");
-app.set("views", "./views");
 
 //routes 
 app.use(require("./routes/index"))
