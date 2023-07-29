@@ -5,11 +5,8 @@
   "description": "To do App ",
   "main": "app.js",
   "scripts": {
-    "watch": "nodemon app.js",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
-    "dev": "npx pm2-dev app.js",
-    "start": "npx pm2 start app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Edray Tuyor",
