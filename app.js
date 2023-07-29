@@ -29,7 +29,7 @@ app.use(
 app.get('/', (req, res) => res.render('index'))
 app.set('views', path.join(__dirname, '/views'));
 app.set("view engine", "pug");
-app.use('/', app.static(path.join(__dirname, '/views')));
+//app.use('/', app.static(path.join(__dirname, '/views')));
 
 //routes 
 app.use(require("./routes/index"))
